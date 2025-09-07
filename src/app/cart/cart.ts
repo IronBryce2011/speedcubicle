@@ -29,7 +29,7 @@ export class Cart {
       this.checkoutMessage = 'Your cart is empty.';
       return;
     }
-    this.http.post<any>('http://localhost:5000/api/create-checkout-session', {
+    this.http.post<any>('speedcubiclebackend.vercel.app/api/create-checkout-session', {
       email: this.email,
       items: this.items.map(i => ({ id: i.product.id, quantity: i.quantity }))
     }).subscribe({
