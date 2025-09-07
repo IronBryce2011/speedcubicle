@@ -14,7 +14,7 @@ export interface Product {
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:5000/api/products';
+  private apiUrl = 'speedcubiclebackend.vercel.app/api/products';
 
   constructor(private http: HttpClient) {}
 
