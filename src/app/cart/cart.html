@@ -1,0 +1,37 @@
+<h1>Your Cart</h1>
+
+<div *ngIf="items.length === 0">Your cart is empty.</div>
+
+<div *ngIf="items.length > 0">
+	<table>
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Remove</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of items">
+				<td>{{ item.product.name }}</td>
+				<td>{{ item.quantity }}</td>
+				<td>${{ item.product.price * item.quantity }}</td>
+				<td><button (click)="remove(item.product.id)">Remove</button></td>
+			</tr>
+		</tbody>
+	</table>
+		<p><strong>Total:</strong> ${{ total }}</p>
+		<button (click)="clear()">Clear Cart</button>
+
+		<form (ngSubmit)="checkout()" style="margin-top:20px">
+			<label>
+				Email for receipt:
+				<input type="email" [(ngModel)]="email" name="email" required>
+			</label>
+			<button type="submit">Checkout</button>
+		</form>
+		<div *ngIf="checkoutMessage" style="margin-top:10px;color:green;">
+			{{ checkoutMessage }}
+		</div>
+</div>
