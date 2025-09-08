@@ -1,7 +1,6 @@
-import { Component,  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-
 
 @Component({
   selector: 'app-success',
@@ -10,6 +9,8 @@ import { RouterLink } from '@angular/router';
   templateUrl: './success.html',
   styleUrl: './success.scss'
 })
-export class Success{
-
+export class Success implements OnInit {
+  ngOnInit(): void {
+    localStorage.clear();
+  }
 }
